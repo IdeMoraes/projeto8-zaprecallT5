@@ -40,6 +40,7 @@ function DeckPage(){
 
     deck.sort(comparador);
 
+
     return(
         <>
             <div className="deck-container">
@@ -48,7 +49,7 @@ function DeckPage(){
                     <p>ZapRecall</p>
                 </header>
                 {deck.map((card, index) => <FlashCard question={card.question} answer={card.answer} questionNumber={index+1}/>)}
-                <footer>X/X CONCLUÍDOS</footer>
+                <footer>0/{deck.length} CONCLUÍDOS</footer>
             </div>
         </>
     );
@@ -65,6 +66,7 @@ function FlashCard(props){
     const [forgot,setForgot]=useState("hidden");
     const [almostForgot,setAlmostForgot]=useState("hidden");
     const [remembered,setRemembered]=useState("hidden");
+
 
     return(
         <div className="flash-card ">
