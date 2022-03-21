@@ -49,7 +49,7 @@ body{
     font-family: 'Righteous', cursive;
     color: #FFFFFF;
 }
-.deck-container .flash-card .unopened-card{
+.deck-container .flash-card .unopened-card, .deck-container .flash-card .answered-card{
     width: 182px;
     height: 40px;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
@@ -59,15 +59,99 @@ body{
     justify-content: space-between;
     align-items: center;
 }
-.deck-container .flash-card .unopened-card p{
+.deck-container .flash-card .unopened-card p, .deck-container .flash-card .answered-card p{
     font-size: 14px;
     margin-left: 6px;
     color: #333333;
     font-weight: bold;
 }
-.deck-container .flash-card .unopened-card ion-icon{
+.deck-container .flash-card .unopened-card ion-icon,.deck-container .flash-card .answered-card ion-icon {
     width: 13px;
     height: 15px;
     margin-right: 12px;
     color: #333333;
+}
+.deck-container .flash-card .card-front{
+    background-color: #FFFFD5;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    width: 182px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 13px;
+    min-height: 80px;
+    position: relative;
+    padding-bottom: 20px;
+}
+.deck-container .flash-card .card-front p{
+    font-size: 12px;
+    color:#333333;
+}
+.deck-container .flash-card .card-front img{
+    position: absolute;
+    bottom: 7px;
+    right: 8px;
+}
+.deck-container .flash-card .card-back{
+    background-color: #FFFFD5;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    width: 182px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 13px;
+    min-height: 80px;
+    position: relative;
+    padding-bottom: 30px;
+}
+.deck-container .flash-card .card-back p{
+    font-size: 12px;
+    color:#333333;
+}
+.deck-container .flash-card .card-back .buttons-container{
+    width: 175px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+}
+.deck-container .flash-card .card-back .buttons-container button{
+    width: 55px;
+    height: 24px;
+    border-radius: 5px;
+    font-size: 7px;
+    color: #FFFFFF;
+}
+.deck-container .flash-card .card-back .buttons-container .forgot{
+    background-color: #FF3030;
+}
+.deck-container .flash-card .card-back .buttons-container .almost-forgot{
+    background-color: #FF922E;
+}
+.deck-container .flash-card .card-back .buttons-container .remembered{
+    background-color: #2FBE34;
+}
+
+.deck-container .flash-card .answered-card.forgot p{
+    color: #FF3030;
+    text-decoration: line-through;
+}
+.deck-container .flash-card .answered-card.forgot ion-icon{
+    color: #FF3030;
+}
+.deck-container .flash-card .answered-card.almost-forgot p{
+    color: #FF922E;
+    text-decoration: line-through;
+}
+.deck-container .flash-card .answered-card.almost-forgot ion-icon{
+    color:  #FF922E;
+}
+.deck-container .flash-card .answered-card.remembered p{
+    color: #2FBE34;
+    text-decoration: line-through;
+}
+.deck-container .flash-card .answered-card.remembered ion-icon{
+    color:  #2FBE34;
 }

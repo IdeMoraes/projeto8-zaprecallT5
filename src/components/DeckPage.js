@@ -1,4 +1,5 @@
 import Logo from "../assets/logo.png";
+import Turn from "../assets/turn.png";
 
 function DeckPage(){
     const deck = [
@@ -45,15 +46,7 @@ function DeckPage(){
                     <img src={Logo} alt="ZapRecall"/>
                     <p>ZapRecall</p>
                 </header>
-                <div className="flash-card">
-                    <div className="unopened-card">
-                        <p>Pergunta 1</p>
-                        <ion-icon name="play-outline"></ion-icon>
-                    </div>
-                    <div className="card-front">Gatos são ___</div>
-                    <div className="card-back">Felinos</div>
-                    <div className="answered-card">Pergunta 1 (respondida)</div>
-                </div>
+                {deck.map((card, index) => <FlashCard question={card.question} answer={card.answer} questionNumber={index+1}/>)}
                 <footer>X/X CONCLUÍDOS</footer>
             </div>
         </>
@@ -66,41 +59,37 @@ function comparador() {
 
 function FlashCard(props){
     return(
-        <>
-            {props.status === 'unoped' ? 
-                <div className="flash-card">
-                    <div className="unopened-card">Pergunta 1</div>
-                    <div className="card-front hidden">Gatos são ___</div>
-                    <div className="card-back hidden">Felinos</div>
-                    <div className="answered-card hidden">Pergunta 1 (respondida)</div>
+        <div className="flash-card">
+            <div className="unopened-card">
+                <p>Pergunta {props.questionNumber}</p>
+                <ion-icon name="play-outline"></ion-icon>
+            </div>
+            <div className="card-front">
+                <p>{props.question}</p>
+                <img src={Turn} alt="ZapRecall"/>
+            </div>
+            <div className="card-back">
+                <p>{props.answer}</p>
+                <div className="buttons-container">
+                    <button className="forgot">Não lembrei</button>
+                    <button className="almost-forgot">Quase não lembrei</button>
+                    <button className="remembered">Zap!</button>
                 </div>
-            : ''}
-            {props.status === 'front' ? 
-                <div className="flash-card">
-                    <div className="unopened-card hidden">Pergunta 1</div>
-                    <div className="card-front">Gatos são ___</div>
-                    <div className="card-back hidden">Felinos</div>
-                    <div className="answered-card hidden">Pergunta 1 (respondida)</div>
-                </div>
-            : ''}
-            {props.status === 'back' ? 
-                <div className="flash-card">
-                    <div className="unopened-card hidden">Pergunta 1</div>
-                    <div className="card-front hidden">Gatos são ___</div>
-                    <div className="card-back">Felinos</div>
-                    <div className="answered-card hidden">Pergunta 1 (respondida)</div>
-                </div>
-            : ''}
-            {props.status === 'answered' ? 
-                <div className="flash-card">
-                    <div className="unopened-card hidden">Pergunta 1</div>
-                    <div className="card-front hidden">Gatos são ___</div>
-                    <div className="card-back hidden">Felinos</div>
-                    <div className="answered-card">Pergunta 1 (respondida)</div>
-                </div>
-            : ''}
-        </>
-    )
+            </div>
+            <div className="answered-card forgot">
+                <p>{props.questionNumber}</p>
+                <ion-icon name="close-circle"></ion-icon>
+            </div>
+            <div className="answered-card almost-forgot">
+                <p>{props.questionNumber}</p>
+                <ion-icon name="help-circle"></ion-icon>
+            </div>
+            <div className="answered-card remembered">
+                <p>{props.questionNumber}</p>
+                <ion-icon name="checkmark-circle"></ion-icon>
+            </div>
+        </div> 
+    );
 }
 
 export default DeckPage;
