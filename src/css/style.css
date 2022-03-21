@@ -49,7 +49,7 @@ body{
     font-family: 'Righteous', cursive;
     color: #FFFFFF;
 }
-.deck-container .flash-card .unopened-card, .deck-container .flash-card .answered-card{
+.unopened-card, .answered-card{
     width: 182px;
     height: 40px;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
@@ -154,4 +154,7 @@ body{
 }
 .deck-container .flash-card .answered-card.remembered ion-icon{
     color:  #2FBE34;
+}
+.hidden{
+    display: none;
 }

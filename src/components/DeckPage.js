@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Logo from "../assets/logo.png";
 import Turn from "../assets/turn.png";
 
@@ -58,34 +59,41 @@ function comparador() {
 }
 
 function FlashCard(props){
+    const [unopened,setUnopened]= useState("");
+    const [cardFront,setCardFront]= useState("hidden");
+    const [cardBack,setCardBack]=useState("hidden");
+    const [forgot,setForgot]=useState("hidden");
+    const [almostForgot,setAlmostForgot]=useState("hidden");
+    const [remembered,setRemembered]=useState("hidden");
+
     return(
-        <div className="flash-card">
-            <div className="unopened-card">
+        <div className="flash-card ">
+            <div className={"unopened-card "+unopened}>
                 <p>Pergunta {props.questionNumber}</p>
-                <ion-icon name="play-outline"></ion-icon>
+                <ion-icon name="play-outline" onClick={()=>{setUnopened("hidden");setCardFront("")}}></ion-icon>
             </div>
-            <div className="card-front">
+            <div className={"card-front "+cardFront}>
                 <p>{props.question}</p>
-                <img src={Turn} alt="ZapRecall"/>
+                <img src={Turn} alt="ZapRecall" onClick={()=>{setCardFront("hidden");setCardBack("")}}/>
             </div>
-            <div className="card-back">
+            <div className={"card-back "+cardBack}>
                 <p>{props.answer}</p>
                 <div className="buttons-container">
-                    <button className="forgot">Não lembrei</button>
-                    <button className="almost-forgot">Quase não lembrei</button>
-                    <button className="remembered">Zap!</button>
+                    <button className="forgot" onClick={()=>{setCardBack("hidden");setForgot("")}}>Não lembrei</button>
+                    <button className="almost-forgot"onClick={()=>{setCardBack("hidden");setAlmostForgot("")}}>Quase não lembrei</button>
+                    <button className="remembered"onClick={()=>{setCardBack("hidden");setRemembered("")}}>Zap!</button>
                 </div>
             </div>
-            <div className="answered-card forgot">
-                <p>{props.questionNumber}</p>
+            <div className={"answered-card forgot "+forgot}>
+                <p>Pergunta {props.questionNumber}</p>
                 <ion-icon name="close-circle"></ion-icon>
             </div>
-            <div className="answered-card almost-forgot">
-                <p>{props.questionNumber}</p>
+            <div className={"answered-card almost-forgot "+almostForgot}>
+                <p>Pergunta {props.questionNumber}</p>
                 <ion-icon name="help-circle"></ion-icon>
             </div>
-            <div className="answered-card remembered">
-                <p>{props.questionNumber}</p>
+            <div className={"answered-card remembered "+remembered}>
+                <p>Pergunta {props.questionNumber}</p>
                 <ion-icon name="checkmark-circle"></ion-icon>
             </div>
         </div> 
