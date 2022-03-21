@@ -1,0 +1,73 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Recursive', sans-serif;
+}
+.main-container{
+    background-color: #FB6B6B;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 90px;
+    padding-bottom: 87px;
+}
+.main-container img{
+    width: 55px;
+    height: 65px;
+}
+.main-container p{
+    font-family: 'Righteous', cursive;
+    color: white;
+    font-size: 25px;
+    margin-bottom: 73px;
+}
+.main-container button{
+    width: 141px;
+    height: 31px;
+    background: #FFFFFF;
+    border: 1px solid #D70900;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    font-size: 12px;
+    color: #D70900;
+}
+.deck-container{
+    background-color: #FB6B6B;
+}
+.deck-container header{
+    display: flex;
+    align-items: center;
+}
+.deck-container header img{
+    width: 26px;
+    height: 30px;
+}
+.deck-container header p{
+    font-size: 20px;
+    font-family: 'Righteous', cursive;
+    color: #FFFFFF;
+}
+.deck-container .flash-card .unopened-card{
+    width: 182px;
+    height: 40px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.deck-container .flash-card .unopened-card p{
+    font-size: 14px;
+    margin-left: 6px;
+    color: #333333;
+    font-weight: bold;
+}
+.deck-container .flash-card .unopened-card ion-icon{
+    width: 13px;
+    height: 15px;
+    margin-right: 12px;
+    color: #333333;
+}
